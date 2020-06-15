@@ -46,5 +46,4 @@ function multiwayaggregation(df::DataFrame,v::Vector{Symbol},cs::Union{Pair, typ
     return res 
 end
 
-
 end # module

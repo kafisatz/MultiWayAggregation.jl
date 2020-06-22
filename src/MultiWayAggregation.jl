@@ -46,4 +46,30 @@ function multiwayaggregation(df::DataFrame,v::Vector{Symbol},cs::Union{Pair, typ
     return res 
 end
 
+
+export addkey! 
+
+#adds comma separated row identifier to each row 
+function addkey!(df,v::Vector{Symbol};keyname=:key)
+    #=
+        keyname = :key
+        v=[:Schadentyp,:Status,:internextern,:Kundensegment,:SYYYY,:Rechtsgebiet]
+    =#
+    @assert issubset(v,propertynames(df))
+    @assert !in(keyname,propertynames(df))
+    @assert !in(keyname,v)
+
+    df[!,keyname]=repeat(vcat(""),size(df,1))
+    for i=1:size(df,1)
+        df[i,keyname]  = join(df[i,v],",")
+    end 
+    
+    have=vcat(keyname)
+    donthave=setdiff(propertynames(df),have)
+    select!(df,vcat(have,donthave))
+
+    return nothing 
+end
+
+
 end # module

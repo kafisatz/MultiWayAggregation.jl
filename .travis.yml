@@ -13,4 +13,4 @@ script:
     - julia -e 'using Pkg; Pkg.activate(pwd());Pkg.instantiate();Pkg.test()'
                
 after_success:
-  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
+  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder());Coveralls.submit(process_folder())'

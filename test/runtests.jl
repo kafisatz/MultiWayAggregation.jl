@@ -41,5 +41,8 @@ using CSV
         end 
     end 
 
-    
+    #code coverage
+    aggMW3=multiwayaggregation(df,v[1],:sepal_length=>sum)
+    addkey!(aggMW2,v)
+
 end

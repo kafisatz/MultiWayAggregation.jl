@@ -51,10 +51,6 @@ export addkey!
 
 #adds comma separated row identifier to each row 
 function addkey!(df,v::Vector{Symbol};keyname=:key)
-    #=
-        keyname = :key
-        v=[:Schadentyp,:Status,:internextern,:Kundensegment,:SYYYY,:Rechtsgebiet]
-    =#
     @assert issubset(v,propertynames(df))
     @assert !in(keyname,propertynames(df))
     @assert !in(keyname,v)

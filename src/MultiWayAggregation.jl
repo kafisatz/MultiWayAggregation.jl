@@ -49,12 +49,12 @@ end
 #multiwayaggregationkw 
 #same as multiwayaggregation but instead of 'missing' a keyword (e.g. "ALL") is used to denote subtotal summaries
 export multiwayaggregationkw
-function multiwayaggregationkw(df::DataFrame,v::Symbol,cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...,subtotalkw="ALL")
-    res=multiwayaggregationkw(df,vcat(v),cs...,subtotalkw="ALL")
+function multiwayaggregationkw(df::DataFrame,v::Symbol,subtotalkw,cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...)
+    res=multiwayaggregationkw(df,vcat(v),subtotalkw,cs...)
     return res 
 end 
 
-function multiwayaggregationkw(df::DataFrame,v::Vector{Symbol},cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...,subtotalkw="ALL")
+function multiwayaggregationkw(df::DataFrame,v::Vector{Symbol},subtotalkw,cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...)
     res=DataFrame()
 
     for c in v 

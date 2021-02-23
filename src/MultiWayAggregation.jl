@@ -58,7 +58,11 @@ function multiwayaggregationkw(df::DataFrame,v::Vector{Symbol},subtotalkw,cs::Un
     res=DataFrame()
 
     for c in v 
-        @assert eltype(df[!,c]) == typeof(subtotalkw)
+        if eltype(df[!,c]) != typeof(subtotalkw)
+            @show c
+            @show eltype(df[!,c]),typeof(subtotalkw)
+            @assert eltype(df[!,c]) == typeof(subtotalkw)
+        end
         @assert !(any(isequal(subtotalkw),df[!,c])) #otherwise the appending will not be meaningful, as we set the values to missing for columns which are not considered in the multi way summary
     end
     

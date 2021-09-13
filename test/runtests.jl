@@ -2,15 +2,22 @@
 using MultiWayAggregation
 using Test
 
+import Downloads
 using DataFrames
 using CSV
 
 @testset "Main Tests" begin
 
-    lnk="https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/639388c2cbc2120a14dcf466e85730eb8be498bb/iris.csv"
-    fi=download(lnk)
-
-    df=CSV.read(fi)
+    
+    local df 
+    try 
+        df=CSV.read(Downloads.download("https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/639388c2cbc2120a14dcf466e85730eb8be498bb/iris.csv"),DataFrame)
+    catch 
+        #alteranative source
+        df = CSV.read(Downloads.download("https://vincentarelbundock.github.io/Rdatasets/csv/datasets/iris.csv"),DataFrame)
+        select!(df,Not(:Column1))
+        rename!(df,["sepal_length", "sepal_width", "petal_length", "petal_width", "species"])
+    end
 
     v=[:species,:petal_width]
     aggMW=multiwayaggregation(df,v,:sepal_length=>sum)

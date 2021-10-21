@@ -16,7 +16,7 @@ function multiwayaggregation(df::DataFrame,v::Vector{Symbol},cs::Union{Pair, typ
     res=DataFrame()
 
     for c in v 
-        @assert !(any(ismissing,df[!,c])) #otherwise the appending will not be meaningful, as we set the values to missing for columns which are not considered in the multi way summary
+        @assert !(any(ismissing,df[!,c])) "Column $(c) has missing values. This is currently not supported by multiwayaggregation" #otherwise the appending will not be meaningful, as we set the values to missing for columns which are not considered in the multi way summary
     end
     
     for subsetlength=length(v):-1:0

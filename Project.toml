@@ -1,7 +1,7 @@
 name = "MultiWayAggregation"
 uuid = "3b13c9e7-6217-433c-ad20-1ced98582b4a"
 authors = ["bernhard <5026865+kafisatz@users.noreply.github.com>"]
-version = "0.1.2"
+version = "0.1.3"
 
 [deps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"

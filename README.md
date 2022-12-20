@@ -1,12 +1,6 @@
 # MultiWayAggregation.jl
 
-![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)<!--
-![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
-![Lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)
-![Lifecycle](https://img.shields.io/badge/lifecycle-retired-orange.svg)
-![Lifecycle](https://img.shields.io/badge/lifecycle-archived-red.svg)
-![Lifecycle](https://img.shields.io/badge/lifecycle-dormant-blue.svg) -->
-[![Build Status](https://travis-ci.com/kafisatz/MultiWayAggregation.jl.svg?branch=master)](https://travis-ci.com/kafisatz/MultiWayAggregation.jl)
+[![CI Testing](https://github.com/kafisatz/MultiWayAggregation.jl/workflows/CI/badge.svg)](https://github.com/kafisatz/MultiWayAggregation.jl/actions?query=workflow%3ACI+branch%3Amain)
 [![codecov.io](http://codecov.io/github/kafisatz/MultiWayAggregation.jl/coverage.svg?branch=master)](http://codecov.io/github/kafisatz/MultiWayAggregation.jl?branch=master)
 <!--
 [![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://kafisatz.github.io/MultiWayAggregation.jl/stable)

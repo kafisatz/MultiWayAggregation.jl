@@ -20,6 +20,11 @@ using CSV
     end
 
     v=[:species,:petal_width]
+    #testing different signatures
+    multiwayaggregation(df,v[1],:sepal_length=>sum)
+    multiwayaggregation(df,string(v[1]),:sepal_length=>sum)
+    multiwayaggregation(df,string.(v),:sepal_length=>sum)
+
     aggMW=multiwayaggregation(df,v,:sepal_length=>sum)
 
     #"manual approach"

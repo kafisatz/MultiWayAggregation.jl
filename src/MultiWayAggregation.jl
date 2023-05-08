@@ -10,8 +10,21 @@ using DataFrames
 using IterTools
 
 export multiwayaggregation
+#version with 'single' symbol
 function multiwayaggregation(df::DataFrame,v::Symbol,cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...)
     res = multiwayaggregation(df,vcat(v),cs...)
+    return res 
+end 
+
+#version with 'single' string
+function multiwayaggregation(df::DataFrame,v::String,cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...)
+    res = multiwayaggregation(df,vcat(Symbol.(v)),cs...)
+    return res 
+end 
+
+#version with 'Vector' string
+function multiwayaggregation(df::DataFrame,v::Vector{String},cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...)
+    res = multiwayaggregation(df,Symbol.(v),cs...)
     return res 
 end 
 
@@ -54,6 +67,18 @@ end
 export multiwayaggregationkw
 function multiwayaggregationkw(df::DataFrame,v::Symbol,subtotalkw,cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...)
     res = multiwayaggregationkw(df,vcat(v),subtotalkw,cs...)
+    return res 
+end 
+
+#version with 'single' string
+function multiwayaggregationkw(df::DataFrame,v::String,subtotalkw,cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...)
+    res = multiwayaggregationkw(df,vcat(Symbol.(v)),subtotalkw,cs...)
+    return res 
+end 
+
+#version with 'Vector' string
+function multiwayaggregation(df::DataFrame,v::Vector{String},subtotalkw,cs::Union{Pair, typeof(nrow), DataFrames.ColumnIndex, DataFrames.MultiColumnIndex}...)
+    res = multiwayaggregationkw(df,Symbol.(v),subtotalkw,cs...)
     return res 
 end 
 

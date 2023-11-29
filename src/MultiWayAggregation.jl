@@ -1,6 +1,6 @@
 module MultiWayAggregation
 
-@info("If aggreagtion is slow, you should use PooledArrays (instead of CategoricalArrays or Strings) for groupby columns")
+@info("If aggregation is slow, you should use PooledArrays (instead of CategoricalArrays or Strings) for groupby columns")
 #https://bkamins.github.io/julialang/2022/05/27/strings.html
 
 @assert VERSION>=v"1.4"
